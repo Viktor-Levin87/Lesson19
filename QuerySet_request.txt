@@ -1,0 +1,12 @@
+python3 manage.py shell
+from task1.models import Buyer
+Buyer.objects.create(name='Vasya', balance='1000.01', age='30')
+Buyer.objects.create(name='Petya', balance='1500.01', age='23')
+Buyer.objects.create(name='Vova', balance='115.34', age='16')
+from task1.models import Game
+Game.objects.create(title='Cyberpunk 2077', cost='10', size='30.2', description='The best game', age_limited=1)
+Game.objects.create(title='Mario', cost='99.99', size='130.25', description='Old game')
+Game.objects.create(title='Hitman', cost='34', size='19', description='Who kills Mark?', age_limited=1)
+Game.objects.get(id=1).buyer.set((1, 2))
+Game.objects.get(id=2).buyer.set((1, 3))
+Game.objects.get(id=3).buyer.set((1, 2))
