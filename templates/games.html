@@ -1,0 +1,14 @@
+{% extends 'menu.html' %}
+{% block title %} {{title}} {% endblock%}
+{% block pagename %} <h1>{{text}}</h1> {% endblock%}
+{% block menu %} {{ block.super }} {% endblock%}
+{% block content %}
+    <ul>
+        {% for i in game %}
+        <li>{{i.title}} | {{i.description}}. Стоимпость: {{i.cost}}<button>{{text_but1}}</button> </li>
+        {% endfor %}
+    </ul>
+    <form action="/platform">
+        <button> {{text_but2}}</button>
+    </form>
+{% endblock%}
