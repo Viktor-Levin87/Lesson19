@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import UserRegister
@@ -89,3 +90,11 @@ def index_games(request):
         'text_but2': text_but2,
     }
     return render(request, 'games.html', context)
+
+
+def index_news(request):
+    new = New.objects.all()
+    paginator = Paginator(new, 3)
+    page_number = request.GET.get('page')
+    news = paginator.get_page(page_number)
+    return render(request, 'news.html', {'news': news})
